@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Registration Form</title>
+<style>
+    /* Basic CSS for form styling */
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Course Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm()">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="courseName">Course Name:</label>
+    <input type="text" id="courseName" name="courseName" required>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+    // Retrieving form field values
+    var fullName = document.getElementById('fullName').value;
+    var email = document.getElementById('email').value;
+    var courseName = document.getElementById('courseName').value;
+
+    // Basic validation
+    if (fullName.trim() === '' || email.trim() === '' || courseName.trim() === '') {
+        alert('Please fill in all fields.');
+        return false; // Prevent form submission
+    }
+
+    // Email validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false; // Prevent form submission
+    }
+
+    // If all validation passes, form will be submitted
+    return true;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
